@@ -22,9 +22,28 @@
   - Postman
   - Database that is storing the info (optional)
 
+## Classes
+  - Referrer
+    - Fields:
+      - Name, Email, Resume, Employer, Hashmap of referees and the key is referee, and the value is list of info they sent or a nested list, Link for referees (name)
+    - Paths:
+      - /referrer/NAME?
+        - Input: Post a request to this path with the following query:
+          - Name, email, resume (a link to your resume that is a string), note 
+        - Action: write to our database, add all 4 of those to the field called referees and then return that nested list
+      - /referrer/NAME/referees
+        - Input: a get request
+        - Action: go to db and give me the nested list of all referees on this person
+  - Referree
+    - Fields:
+      - Name, Email, Resume, Note 
+
 ## Building
 - API Layer
 - Database Layer
+  - Mysql
+    - Data
+      - Referrer and all thier fields
 - Client (Optional)
 
 ## Testing
